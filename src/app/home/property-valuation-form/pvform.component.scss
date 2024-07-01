@@ -1,0 +1,75 @@
+.initiatorDetails {
+    font-weight: bold;
+}
+
+.pvPageMainDiv {
+    margin: 20px;
+    color: #067ecf;
+}
+
+.firstBox {
+    border: 1px solid;
+    margin-right: 10px;
+    padding: 5px;
+    margin-left: unset !important;
+}
+
+.btnCss{
+    padding: 10px;
+    border: 1px;
+    background: #067ecf !important;
+    color: white;
+    font-size: 15px;
+    width: 180px;
+}
+
+button:disabled,
+button[disabled] {
+    border: 1px solid #d9d6d6;
+    background-color: #d9d6d6;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+.disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #067ecf;
+    border-color: #067ecf;
+}
+
+.container {
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .comments-section, .upload-section, .uploaded-documents {
+    margin-bottom: 20px;
+  }
+  
+  .upload-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .upload-label {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .upload-label span {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }

@@ -1,0 +1,43 @@
+.headerDiv {
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #067ecf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.headerTitle {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 30px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #067ecf;
+    border-color: #ffffff;
+}
+.headerTitle1 {
+    width: 150px;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s, color 0.5s;
+}
+.headerTitle1:hover{
+    background-color: white;
+    color: #067ecf;
+}

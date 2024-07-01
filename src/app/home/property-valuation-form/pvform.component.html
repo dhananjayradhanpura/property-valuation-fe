@@ -1,0 +1,284 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btnCss" mat-flat-button color="primary" (click)="viewAppPage()">View Applications</button>
+        </div>
+    </div>
+    <form [formGroup]="pvForm" autocomplete="off" (ngSubmit)="submitForm()">
+        <div class="pvPageMainDiv">
+            <h5>New Property Valuation</h5>
+            <mat-accordion multi>
+                <mat-expansion-panel hideToggle [expanded]="firstPanel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Initiators Details</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Initiator Name</mat-label>
+                                <input matInput formControlName="username" readonly>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Initiator Business Unit</mat-label>
+                                <input matInput formControlName="buisnessUnit" readonly>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Initiator Contact Number</mat-label>
+                                <input matInput formControlName="contactNumber">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle [expanded]="firstPanel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Facility Details</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Type Of Facility</mat-label>
+                                <mat-select formControlName="facilityType">
+                                    <mat-option *ngFor="let item of facilityTypes" [value]="item">{{ item }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Category</mat-label>
+                                <input matInput formControlName="category">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Purpose</mat-label>
+                                <input matInput formControlName="purpose">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Term</mat-label>
+                                <input matInput formControlName="term">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>CCY</mat-label>
+                                <mat-select formControlName="ccy">
+                                    <mat-option *ngFor="let item of currencies" [value]="item">{{ item }}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Amount</mat-label>
+                                <input matInput formControlName="amount">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle [expanded]="firstPanel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Property Valuation</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Type Of Valuation</mat-label>
+                                <mat-select formControlName="propertytype">
+                                    <mat-option value="" disabled>Choose title</mat-option>
+                                    <mat-option value="New">New</mat-option>
+                                    <mat-option value="Existing">Existing</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field appearance="outline" class="full-width">
+                                <mat-label>Fos Ref No</mat-label>
+                                <input matInput formControlName="fosreferenceNumber">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle [expanded]="firstPanel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Borrower's Details</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div formArrayName="borrowers" *ngFor="let borrower of formarray.controls; let i = index">
+                        <div *ngIf="!i">Main Borrower </div><br>
+                            <div *ngIf="i">Joint Borrower #{{i}}</div>
+                        <div [formGroupName]="i">
+                            <ng-container>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Customer Number</mat-label>
+                                            <input matInput formControlName="customerNumber">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Customer Name</mat-label>
+                                            <input matInput formControlName="name">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Address</mat-label>
+                                            <textarea matInput matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="5" formControlName="address"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Contact Number</mat-label>
+                                            <input matInput formControlName="contactNumber">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Email</mat-label>
+                                            <input matInput formControlName="email" pattern="[a-zA-Z0-9.-_]+@[a-zA-Z.-]+\.[a-zA-Z]{2,}" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-1" *ngIf="i">
+                                        <button mat-icon-button color="primary" (click)="deleteBorrower(i)">
+                                            <mat-icon>delete</mat-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button class="btnCss" mat-raised-button type="button" color="primary" (click)="addBorrower()">Add Joint Borrower</button>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle [expanded]="firstPanel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title></mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div formArrayName="comments" *ngFor="let comments of comments.controls; let i = index">
+                        <div [formGroupName]="i">
+                            <ng-container>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Comments</mat-label>
+                                            <textarea matInput rows="2" formControlName="comments"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <div class="previous-comments">
+                        <h5>Previous comments</h5>
+                        <table mat-table [dataSource]="commentsDataSource1" class="mat-elevation-z8">
+                          <ng-container matColumnDef="date">
+                            <th mat-header-cell *matHeaderCellDef> Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.createdDate  | date:'short'}} </td>
+                          </ng-container>
+                  
+                          <ng-container matColumnDef="user">
+                            <th mat-header-cell *matHeaderCellDef> User </th>
+                            <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+                          </ng-container>
+                  
+                          <ng-container matColumnDef="comments">
+                            <th mat-header-cell *matHeaderCellDef> Comments </th>
+                            <td mat-cell *matCellDef="let element"> {{element.comments}} </td>
+                          </ng-container>
+                  
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel hideToggle [expanded]="firstPanel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Upload section</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div formArrayName="documents" *ngFor="let documents of documents.controls; let i = index">
+                        <div [formGroupName]="i">
+                            <ng-container>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <mat-form-field appearance="outline" class="full-width">
+                                            <mat-label>Document Type</mat-label>
+                                            <mat-select formControlName="type">
+                                                <mat-option selected disabled>Select title</mat-option>
+                                                <mat-option *ngFor="let item of documentTypes" [value]="item">{{ item }}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    <div class="upload-area">
+                                            <label for="fileInput" class="upload-label">
+                                                <span>Drag and drop file to upload</span> or
+                                                <button mat-button>Browse</button>
+                                            </label>
+                                            <input type="file" (change)="onChangeFile($event)">
+                                            <p>Maximum size: 5MB</p>
+                                            <p>Allowed formats: XLSX, PDF</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 uploaded-documents">
+                                        <h5>Uploaded documents</h5>
+                                        <table mat-table [dataSource]="documentsDataSource1" class="mat-elevation-z8">
+                                          <ng-container matColumnDef="docType">
+                                            <th mat-header-cell *matHeaderCellDef> Doc Type </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.documentType}} </td>
+                                          </ng-container>
+                                    
+                                          <ng-container matColumnDef="filename">
+                                            <th mat-header-cell *matHeaderCellDef> Filename </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.fileName}} </td>
+                                          </ng-container>
+                                    
+                                          <ng-container matColumnDef="size">
+                                            <th mat-header-cell *matHeaderCellDef> Size </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.fileSize}} KB </td>
+                                          </ng-container>
+                                    
+                                          <ng-container matColumnDef="uploadedBy">
+                                            <th mat-header-cell *matHeaderCellDef> Uploaded by </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.updatedBy}} </td>
+                                          </ng-container>
+                                    
+                                          <ng-container matColumnDef="uploadedOn">
+                                            <th mat-header-cell *matHeaderCellDef> Uploaded on </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.createdDate  | date:'short'}} </td>
+                                          </ng-container>
+                                    
+                                          <ng-container matColumnDef="actions">
+                                            <th mat-header-cell *matHeaderCellDef> Actions </th>
+                                            <td mat-cell *matCellDef="let element">
+                                              <button mat-icon-button (click)="downloadFile(element)">
+                                                <mat-icon>cloud_download</mat-icon>
+                                              </button>
+                                              <button mat-icon-button (click)="deleteFile(element)">
+                                                <mat-icon>delete</mat-icon>
+                                              </button>
+                                            </td>
+                                          </ng-container>
+                                    
+                                          <tr mat-header-row *matHeaderRowDef="displayedDocumentColumns"></tr>
+                                          <tr mat-row *matRowDef="let row; columns: displayedDocumentColumns;"></tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div style="margin-top:30px; margin-bottom:10px ">
+                <button class="btnCss" mat-raised-button color="primary" type="submit">Submit</button>
+                <button class="btnCss" mat-raised-button color="primary" style="margin-left:20px" type="button">Cancel</button>
+            </div> 
+        </div>
+    </form>
+</div>

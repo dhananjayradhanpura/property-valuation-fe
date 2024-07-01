@@ -1,0 +1,29 @@
+
+<div class="left-pane"></div>
+<div class="login-pane">
+  <div>
+    <div class="form-heading">Sign In</div>
+        <form autocomplete="off" [formGroup]="form" (ngSubmit)="submit()">
+          <p>
+            <mat-form-field>
+              <input type="text" class="form-control" matInput placeholder="User name" formControlName="username">
+            </mat-form-field>
+          </p>
+
+          
+          <p>
+            <mat-form-field>
+              <input [type]="show ? 'text' : 'password'" matInput placeholder="Password" formControlName="password">
+              <mat-icon matSuffix (click)="password()" >{{show ? 'visibility' :
+                'visibility_off'}}</mat-icon>
+            </mat-form-field>
+
+          </p>
+
+          <div class="button">
+            <button type="submit" mat-button [disabled]="!form.valid" class="btn-success">Let's Go</button>
+          </div>
+
+        </form>
+  </div>
+</div>

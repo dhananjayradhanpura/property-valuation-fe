@@ -1,0 +1,101 @@
+.headerDiv {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: grey;
+}
+
+.headerTitle {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.left-pane{
+  background-color: #067ecf;
+  width: 50%;
+}
+.login-pane{
+  background-color: white;
+  width: 50%;
+  padding: 14%;
+}
+.form-heading{
+  color: #067ecf;
+  font-weight: 600;
+  font-size: medium;
+  margin-bottom: 5%;
+}
+.btn-success{
+    background-color: #067ecf;
+    color: #ffffff !important;
+    align-self: center;
+    width: 100%;
+}
+:host {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+
+
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-side {
+    flex: 1;
+    background-color: #f0f0f0; /* Change this to your desired color */
+  }
+  
+  .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+  
+  mat-card {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .button {
+    text-align: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-card-title {
+    text-align: center;
+  }
