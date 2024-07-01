@@ -10,8 +10,16 @@ export class PVAppService {
     constructor(private http: HttpClient) {
     }
 
-    getDropDowns(){
-        let url = AppConstants.HOST + ApiConstants.DROPDOWN_URL;
+    getCurrencies(){
+        let url = AppConstants.HOST + ApiConstants.CURRENCY_URL;
+        return this.http.get<any>(url);
+    }
+    getFacilityTypes(){
+        let url = AppConstants.HOST + ApiConstants.FACILITY_TYPE_URL;
+        return this.http.get<any>(url);
+    }
+    getDocumentTypes(){
+        let url = AppConstants.HOST + ApiConstants.DOCUMENTTYPE_URL;
         return this.http.get<any>(url);
     }
     getNextAppRefNo(){

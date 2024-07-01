@@ -19,10 +19,9 @@ export class PvformComponent implements OnInit {
   firstPanel = true;
   panelOpenState = false;
   pvApplicationReq!: PVApplicationRequest;
-  dropdowns!: [];
-  currencies!: [];
-  facilityTypes!: [];
-  documentTypes!: [];
+  currencies!: DropdownData[];
+  facilityTypes!: DropdownData[];
+  documentTypes!: DropdownData[];
   nexRefNo!: number;
   fileForUpload!: Blob;
   formarray!: FormArray;
@@ -37,34 +36,34 @@ export class PvformComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.pvAppService.getDropDowns().subscribe((res: any) => {
-      this.dropdowns = res;
-      console.log(this.dropdowns);
-      this.dropdowns.forEach(element => {
-        if(element['dropDownOptions']['currency']){
-          this.currencies = element['dropDownOptions']['currency'];
-        }
-        if(element['dropDownOptions']['docType']){
-          this.documentTypes = element['dropDownOptions']['docType'];
-        }
-        if(element['dropDownOptions']['facility']){
-          this.facilityTypes = element['dropDownOptions']['facility'];
-        }
-      });
+    this.pvAppService.getCurrencies().subscribe((res: any) => {
+      this.currencies = res;
     }, (error => {
-      // alert("Error occured while fetching currencies");
+      alert("Error occured while fetching currencies");
+    }
+    ));
+    this.pvAppService.getFacilityTypes().subscribe((res: any) => {
+      this.facilityTypes = res;
+    }, (error => {
+      alert("Error occured while fetching facilities");
+    }
+    ));
+    this.pvAppService.getDocumentTypes().subscribe((res: any) => {
+      this.documentTypes = res;
+    }, (error => {
+      alert("Error occured while fetching Document Types");
     }
     ));
     this.pvAppService.fetchDocuments(this.applicationStorageService.getUserId()).subscribe((res: any) => {
       this.documentsDataSource1 = res;
     }, (error => {
-      // alert("Error occured while fetching Documents");
+      alert("Error occured while fetching Documents");
     }
     ));
     this.pvAppService.fetchComments(this.applicationStorageService.getUserId()).subscribe((res: any) => {
       this.commentsDataSource1 = res;
     }, (error => {
-      // alert("Error occured while fetching Comments");
+      alert("Error occured while fetching Comments");
     }
     ));
 
@@ -150,7 +149,7 @@ export class PvformComponent implements OnInit {
     this.populatePVApplicationRequest(this.pvApplicationReq);
     this.pvAppService.createPvForm(this.pvApplicationReq, this.fileForUpload).subscribe({
       next: () => {
-        // alert("New application created Successfully");
+        alert("New application created Successfully");
         this.router.navigate(['home/pvview']);
       },
     });
@@ -182,7 +181,7 @@ export class PvformComponent implements OnInit {
     request.commentsDto = [...formData.comments];
     request.documentsDto = [
       {
-        type: "",
+        type: { id: 0, name: formData.documents[0].type },
         document: ""
       }
     ];

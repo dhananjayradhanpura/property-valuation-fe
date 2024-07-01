@@ -12,11 +12,11 @@ export class LoginService {
 
   }
   login(request: LoginRequest): Observable<any> {
-    let url = AppConstants.HOST + '/api/v1/auth/signin';
+    let url = AppConstants.HOST + '/api/v1/auth/login';
     return this.http.post<any>(url, request);
   }
   logout(): Observable<any> {
-    let url = AppConstants.HOST + '/api/v1/auth/signout';
+    let url = AppConstants.HOST + '/api/v1/auth/logout';
     return this.http.get<any>(url);
   }
   refreshToken(request: any): Observable<any> {

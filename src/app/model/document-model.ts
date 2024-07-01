@@ -1,6 +1,6 @@
 import { DropdownData } from "./dropdown-data-model"
 
 export class Document{
-    type!: String;
+    type!: DropdownData;
     document!: String;
 }
