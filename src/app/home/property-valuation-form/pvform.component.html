@@ -42,7 +42,7 @@
                             <mat-form-field appearance="outline" class="full-width">
                                 <mat-label>Type Of Facility</mat-label>
                                 <mat-select formControlName="facilityType">
-                                    <mat-option *ngFor="let item of facilityTypes" [value]="item">{{ item }}</mat-option>
+                                    <mat-option *ngFor="let item of facilityTypes" [value]="item.name">{{ item.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -70,7 +70,7 @@
                             <mat-form-field appearance="outline" class="full-width">
                                 <mat-label>CCY</mat-label>
                                 <mat-select formControlName="ccy">
-                                    <mat-option *ngFor="let item of currencies" [value]="item">{{ item }}</mat-option>
+                                    <mat-option *ngFor="let item of currencies" [value]="item.name">{{ item.name }}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -212,7 +212,7 @@
                                             <mat-label>Document Type</mat-label>
                                             <mat-select formControlName="type">
                                                 <mat-option selected disabled>Select title</mat-option>
-                                                <mat-option *ngFor="let item of documentTypes" [value]="item">{{ item }}</mat-option>
+                                                <mat-option *ngFor="let item of documentTypes" [value]="item.name">{{ item.name }}</mat-option>
                                             </mat-select>
                                         </mat-form-field>
                                     <div class="upload-area">

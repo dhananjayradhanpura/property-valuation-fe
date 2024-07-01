@@ -13,8 +13,8 @@ const routes: Routes = [
         component: HomeComponent,
         children: [
             { path: '', component: PvApplicationsViewComponent, canActivate: [SessionGuardService], pathMatch: 'full' },
-            { path: 'pvview', component: PvApplicationsViewComponent, canActivate: [SessionGuardService], pathMatch: 'full' },
-            { path: 'pvform', component: PvformComponent, canActivate: [SessionGuardService, AuthGuardService], data: { roles: 1 } }
+            { path: 'property-valuation-view', component: PvApplicationsViewComponent, canActivate: [SessionGuardService], pathMatch: 'full' },
+            { path: 'property-valuation-create', component: PvformComponent, canActivate: [SessionGuardService, AuthGuardService], data: { roles: 1 } }
         ]
     },
 ];

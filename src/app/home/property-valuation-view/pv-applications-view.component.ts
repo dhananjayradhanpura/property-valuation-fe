@@ -53,11 +53,11 @@ export class PvApplicationsViewComponent implements OnInit {
   }
 
   createAppPage() {
-    this.router.navigate(['home/pvform']);
+    this.router.navigate(['home/property-valuation-create']);
   }
 
   claimAction(){
-    this.router.navigate(['home/pvform']);
+    this.router.navigate(['home/property-valuation-create']);
   }
 
 }

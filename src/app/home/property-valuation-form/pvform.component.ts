@@ -150,7 +150,7 @@ export class PvformComponent implements OnInit {
     this.pvAppService.createPvForm(this.pvApplicationReq, this.fileForUpload).subscribe({
       next: () => {
         alert("New application created Successfully");
-        this.router.navigate(['home/pvview']);
+        this.router.navigate(['home/property-valuation-view']);
       },
     });
   }
@@ -195,7 +195,7 @@ export class PvformComponent implements OnInit {
   }
 
   viewAppPage() {
-    this.router.navigate(['home/pvview']);
+    this.router.navigate(['home/property-valuation-view']);
   }
 
 
